@@ -1,20 +1,17 @@
-console.log('старт');
+// обработка при загрузке, выбирает показывать поле ввода или хранимый город
 document.addEventListener("DOMContentLoaded", function() {
-    console.log('функция по загрузке')
     if (document.cookie.includes('user_sity'))
     {
-        console.log('includes');
         sity_in_cookie = getCookie('user_sity');
         first_visit.style.cssText = `display: none;`;
         other_visit.style.cssText = `display: ;`;
         visited_sity.textContent = `Ваш город: ${sity_in_cookie}`
     }
     else {
-        console.log('NOT includes')
         first_visit.style.cssText = `display: ;`;
     }
 });
-
+//Функция записывает в куки набираемое значение
 function inputed_value (x) {
     // body...
     iv = x.value
@@ -23,6 +20,7 @@ function inputed_value (x) {
     document.cookie = new_cookie_v;
 }
 
+// функция полученя куки по имени
 function getCookie(name) {
     let matches = document.cookie.match(new RegExp(
         "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
@@ -30,8 +28,8 @@ function getCookie(name) {
     return matches ? decodeURIComponent(matches[1]) : undefined;
 }
 
+//сброс города по нажатию кнопки
 change_sity.onclick = () => {
     document.cookie = "user_sity=none; max-age=-1"
     window.location.reload();
 }
-
