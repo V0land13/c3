@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
 function inputed_value (x) {
     // body...
     iv = x.value
-    new_cookie_v = "user_sity= " + iv + "; max-age=2678400‬";
+    new_cookie_v = "user_sity= " + encodeURIComponent(iv) + "; max-age=2678400‬";
     console.log(new_cookie_v)
     document.cookie = new_cookie_v;
 }
